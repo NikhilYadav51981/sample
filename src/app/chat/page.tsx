@@ -143,7 +143,7 @@ export default function ChatPage() {
           <div className="empty-state">
             <div className="empty-icon">💬</div>
             <h3>Start a conversation</h3>
-            <p>Ask me anything! I'm here to help.</p>
+            <p>Ask me anything! I&apos;m here to help.</p>
           </div>
         ) : (
           <div className="messages-list">
