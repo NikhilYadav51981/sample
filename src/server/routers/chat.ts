@@ -48,6 +48,8 @@ export const chatRouter = router({
       }
 
       // Generate Gemini AI reply
+      GEMINI_API_KEY_TEXT=AIzaSyDeAeTxy7g1URnMLkxSz1ugZpiApZQl7dY
+      GEMINI_API_KEY_IMAGE=AIzaSyDeAeTxy7g1URnMLkxSz1ugZpiApZQl7dY
       const textApiKey = process.env.GEMINI_API_KEY_TEXT || process.env.GEMINI_API_KEY_IMAGE;
       console.log("Environment check - Gemini API Key available:", !!textApiKey);
       console.log("Environment check - All env vars:", Object.keys(process.env).filter(key => key.includes('GEMINI')));
