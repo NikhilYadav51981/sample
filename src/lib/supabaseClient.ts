@@ -1,3 +1,4 @@
+
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 let cachedClient: SupabaseClient | null = null;
@@ -19,13 +20,18 @@ export function getSupabase(): SupabaseClient | null {
 
   if (!supabaseUrl || !supabaseAnonKey) {
     console.warn(
-      "Supabase env vars are not set: NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY. Falling back to no-op."
+      "⚠️ Supabase not configured: Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY"
     );
+    console.warn("Chat will work without message persistence until Supabase is configured.");
     return null;
   }
 
-  cachedClient = createClient(supabaseUrl, supabaseAnonKey);
-  return cachedClient;
+  try {
+    cachedClient = createClient(supabaseUrl, supabaseAnonKey);
+    console.log("✅ Supabase client initialized successfully");
+    return cachedClient;
+  } catch (error) {
+    console.error("❌ Failed to initialize Supabase client:", error);
+    return null;
+  }
 }
-
-
