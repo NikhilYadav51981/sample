@@ -31,6 +31,7 @@ export const chatRouter = router({
 
       // Generate Gemini Cloud Assist reply
       const textApiKey = process.env.GEMINI_API_KEY_TEXT || process.env.GEMINI_API_KEY_IMAGE;
+      console.log("Gemini API Key available:", !!textApiKey);
       let reply = "";
       if (textApiKey) {
         try {
