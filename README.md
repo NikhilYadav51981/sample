@@ -1,5 +1,5 @@
 # ChatGPT Clone
-sample-4194df95l-nikhil-yadavs-projects-b60dbb29.vercel.app
+[Visit My Website](sample-4194df95l-nikhil-yadavs-projects-b60dbb29.vercel.app)
 
 A modern, mobile-first ChatGPT clone built with Next.js, tRPC, Supabase, and Gemini AI.
 
