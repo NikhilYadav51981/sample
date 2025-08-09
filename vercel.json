@@ -1,11 +1,9 @@
 
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
   "env": {
     "GEMINI_API_KEY_TEXT": "@gemini_api_key_text",
     "NEXT_PUBLIC_SUPABASE_URL": "@next_public_supabase_url",

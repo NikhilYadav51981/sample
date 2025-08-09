@@ -1,5 +1,4 @@
 # ChatGPT Clone
-[Visit My Website](sample-4194df95l-nikhil-yadavs-projects-b60dbb29.vercel.app)
 
 A modern, mobile-first ChatGPT clone built with Next.js, tRPC, Supabase, and Gemini AI.
 
@@ -30,20 +29,10 @@ A modern, mobile-first ChatGPT clone built with Next.js, tRPC, Supabase, and Gem
    ```env
    # Gemini API Key
    GEMINI_API_KEY_TEXT=your_gemini_api_key_here
-   GEMINI_API_KEY_IMAGE=your_gemini_api_key_here
 
    # Supabase Configuration
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-   # Auth0 Configuration (Optional)
-   AUTH0_SECRET=your_auth0_secret
-   AUTH0_BASE_URL=http://localhost:3000
-   AUTH0_ISSUER_BASE_URL=https://your_domain.auth0.com
-   AUTH0_CLIENT_ID=your_auth0_client_id
-   AUTH0_CLIENT_SECRET=your_auth0_client_secret
-   AUTH0_DOMAIN=your_domain.auth0.com
-   APP_BASE_URL=http://localhost:3000
    ```
 
 4. **Run the development server**
@@ -54,31 +43,33 @@ A modern, mobile-first ChatGPT clone built with Next.js, tRPC, Supabase, and Gem
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Network Access (For Testing on Other Devices)
+## Deployment Options
 
-To make your app accessible from other devices on your local network:
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your GitHub repository to Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy automatically
 
-1. **Run the network server**
-   ```bash
-   npm run dev-network
-   ```
+### Docker
+```bash
+docker build -t chatgpt-clone .
+docker run -p 3000:3000 --env-file .env.local chatgpt-clone
+```
 
-2. **Find your IP address**
-   ```bash
-   ifconfig | grep "inet " | grep -v 127.0.0.1
-   ```
+### Manual Deployment
+```bash
+npm run build
+npm start
+```
 
-3. **Access from other devices**
-   - Other devices on the same network can access: `http://YOUR_IP_ADDRESS:3000`
-   - Example: `http://10.62.204.132:3000`
-
-## Setup Instructions
+## Environment Setup Instructions
 
 ### 1. Gemini API Setup
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Sign in with your Google account
 3. Click "Create API Key"
-4. Copy the API key and add it to your `.env.local` file
+4. Copy the API key and add it to your environment variables
 
 ### 2. Supabase Setup
 1. Create a new project at [Supabase](https://supabase.com)
@@ -103,17 +94,11 @@ To make your app accessible from other devices on your local network:
    create index if not exists idx_messages_user on public.messages (user_id);
    ```
 
-### 3. Auth0 Setup (Optional)
-1. Create an Auth0 application
-2. Configure callback URLs: `http://localhost:3000/api/auth/callback`
-3. Add your Auth0 credentials to `.env.local`
-
 ## Available Scripts
 
-- `npm run dev` - Start development server (localhost only)
-- `npm run dev-network` - Start development server (accessible from network)
+- `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm run start` - Start production server
+- `npm start` - Start production server
 - `npm run lint` - Run ESLint
 
 ## Tech Stack
@@ -123,7 +108,6 @@ To make your app accessible from other devices on your local network:
 - **Database**: Supabase (PostgreSQL)
 - **AI**: Google Gemini API
 - **Styling**: Bootstrap + Custom CSS
-- **Authentication**: Auth0 (optional)
 
 ## Project Structure
 
@@ -144,7 +128,3 @@ src/
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
-
-## License
-
-MIT License
