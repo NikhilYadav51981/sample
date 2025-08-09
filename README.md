@@ -1,4 +1,5 @@
 # ChatGPT Clone
+link ->  https://sample-tan-five.vercel.app/chat
 
 A modern, mobile-first ChatGPT clone built with Next.js, tRPC, Supabase, and Gemini AI.
 
